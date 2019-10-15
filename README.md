@@ -6,9 +6,7 @@
 
 This is a [fonk](https://github.com/Lemoncode/fonk) microlibrary that brings validation capabilities to:
 
-// TODO: Update description and example.
-
-- Validate if a field of a form ....
+- Validate if a field of a form is a valid credit card
 
 How to add it to an existing form validation schema:
 
@@ -16,8 +14,8 @@ We have the following form model:
 
 ```
 const myFormValues = {
-  product : 'shoes',
-  price: 20,
+  clientId: 1,
+  creditCard: '375556917985515'
 }
 ```
 
@@ -27,7 +25,7 @@ We can add a isCreditCard validation to the myFormValues
 import { isCreditCard } from '@lemoncode/fonk-is-credit-card-validator';
 
 const validationSchema = {
-  price: [isCreditCard.validator],
+  creditCard: [isCreditCard.validator],
 };
 ```
 
@@ -38,7 +36,9 @@ You can customize the error message displayed in two ways:
 ```javascript
 import { isCreditCard } from '@lemoncode/fonk-is-credit-card-validator';
 
-isCreditCard.setErrorMessage('El campo debe de ser numérico');
+isCreditCard.setErrorMessage(
+  'El valor debe de ser un número de tarjeta de crédito válido'
+);
 ```
 
 - Locally just override the error message for this validationSchema:
