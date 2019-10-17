@@ -25,7 +25,9 @@ We can add a isCreditCard validation to the myFormValues
 import { isCreditCard } from '@lemoncode/fonk-is-credit-card-validator';
 
 const validationSchema = {
-  creditCard: [isCreditCard.validator],
+  field: {
+    creditCard: [isCreditCard.validator],
+  },
 };
 ```
 
@@ -47,12 +49,14 @@ isCreditCard.setErrorMessage(
 import { isCreditCard } from '@lemoncode/fonk-is-credit-card-validator';
 
 const validationSchema = {
-  price: [
-    {
-      validator: isCreditCard.validator,
-      message: 'Error message only updated for the validation schema',
-    },
-  ],
+  field: {
+    creditCard: [
+      {
+        validator: isCreditCard.validator,
+        message: 'Error message only updated for the validation schema',
+      },
+    ],
+  },
 };
 ```
 
